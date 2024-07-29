@@ -1,4 +1,4 @@
-﻿namespace APICodigoEFC.Roles
+﻿namespace Domain.Roles
 {
     public class UserValidationResult
     {       

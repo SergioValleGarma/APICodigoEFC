@@ -1,6 +1,7 @@
-using APICodigoEFC.Models;
-using APICodigoEFC.Request;
-using APICodigoEFC.Roles;
+using Domain.Models;
+using Domain.Request;
+using Domain.Roles;
+using Infraestructure.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using APICodigoEFC.Models;
+using Domain.Models;
 
-namespace APICodigoEFC.Controllers
+namespace Domain.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

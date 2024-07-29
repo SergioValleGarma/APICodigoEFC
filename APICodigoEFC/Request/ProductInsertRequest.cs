@@ -1,4 +1,4 @@
-﻿namespace APICodigoEFC.Request
+﻿namespace Domain.Request
 {
     public class ProductInsertRequest
     {

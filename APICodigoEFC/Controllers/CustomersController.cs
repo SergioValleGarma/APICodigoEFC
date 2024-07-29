@@ -1,62 +1,63 @@
-﻿using APICodigoEFC.Models;
-using APICodigoEFC.Request;
-using APICodigoEFC.Response;
+﻿using Domain.Models;
+using Domain.Request;
+using Domain.Response;
+using Infraestructure.Contexts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using APICodigoEFC.Services;
+using Services.Services;
 
-namespace APICodigoEFC.Controllers
+namespace Domain.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
         private readonly CodigoContext _context;
+        private CustomerService _service;
 
         public CustomersController(CodigoContext context)
         {
             _context = context;
+            _service = new CustomerService(_context);
         }
 
         [HttpGet]
         public List<Customer> GetByFilters(string? name,string? documentNumber )
         {
-            var services = new CustomerService(_context);
-            var customers = services.GetByFilters(name, documentNumber);
+            var customers = _service.GetByFilters(name, documentNumber);
             return customers;
         }
 
         [HttpPost]
         public void Insert([FromBody] Customer customer)
         {
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
+            _service.Insert(customer);
         }
         [HttpPut]
         public void Update([FromBody] Customer customer)
         {
-            _context.Entry(customer).State = EntityState.Modified;
-            _context.SaveChanges();
+            _service?.Update(customer);
         }
         [HttpPut]
         public ResponseBase UpdateName([FromBody] CustomerUpdateRequest request)
         {
             ResponseBase response = new ResponseBase();
+            int code = 0;
             try
             {
-                    var customer = _context.Customers.Find(request.Id);
-                if (customer == null)
-                {
-                    response.Code = -1000;
-                    response.Message = "El cliente no existe";
-                }
-                customer.Name = request.Name;
-                _context.Entry(customer).State = EntityState.Modified;
-                _context.SaveChanges();
+                response.Code = 0;
+                response.Message = "Registro exitoso";
 
-                response.Code = 0000;
-                response.Message = "Actualización Correcta";
+                code = _service.UpdateName(request.Id, request.Name);
+
+                if (code != 0)
+                {
+                    response.Message = "Error controlado";
+                    response.Code = code;
+                }
+
+                    
                 return response;
             }
             catch (Exception ex)
@@ -67,19 +68,13 @@ namespace APICodigoEFC.Controllers
                 return response;
             }
 
-            
+
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            //Eliminación Física  
-            //_context.Customers.Remove(customer);
-
-            var customer =  _context.Customers.Find(id);
-            customer.IsActive = false;
-            _context.Entry(customer).State = EntityState.Modified;         
-            _context.SaveChanges();          
+            _service?.Delete(id);
         }
 
 

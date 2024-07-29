@@ -1,4 +1,4 @@
-﻿namespace APICodigoEFC.Models
+﻿namespace Domain.Models
 {
     public class Customer
     {

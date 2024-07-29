@@ -1,4 +1,4 @@
-﻿namespace APICodigoEFC.Response
+﻿namespace Domain.Response
 {
     public class DetailResponseV2
     {

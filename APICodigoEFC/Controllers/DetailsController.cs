@@ -1,10 +1,10 @@
-﻿using APICodigoEFC.Models;
-using APICodigoEFC.Response;
+﻿using Domain.Models;
+using Domain.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace APICodigoEFC.Controllers
+namespace Domain.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
