@@ -1,13 +1,14 @@
 ﻿using Domain.Models;
-using Domain.Request;
-using Domain.Response;
+
+using APICodigoEFC.Response;
 using Infraestructure.Contexts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Services.Services;
+using APICodigoEFC.Request;
 
-namespace Domain.Controllers
+namespace APICodigoEFC.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -63,8 +64,8 @@ namespace Domain.Controllers
             catch (Exception ex)
             {
 
-                response.Message = "Error No controlado";
-                response.Code = -1000;
+                response.Message = "Error No controlado :" + ex;
+                response.Code = -1001;
                 return response;
             }
 

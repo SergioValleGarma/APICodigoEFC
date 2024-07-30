@@ -1,4 +1,4 @@
-﻿namespace Domain.Response
+﻿namespace APICodigoEFC.Response
 {
     public class ResponseBase
     {

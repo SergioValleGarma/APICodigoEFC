@@ -1,6 +1,6 @@
 using Domain.Models;
-using Domain.Request;
-using Domain.Roles;
+using APICodigoEFC.Request;
+using APICodigoEFC.Roles;
 using Infraestructure.Contexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -24,9 +24,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<CodigoContext>(
     options =>
     {
-        options.UseSqlServer("Data Source=DESKTOP-KSJLU0B\\SQLNET;" +
-            "Initial Catalog=CodigoDB3;User ID= userCodigo; Pwd=uni;" +
-            "TrustServerCertificate=True");
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
     });
 
 

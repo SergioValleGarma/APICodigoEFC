@@ -22,7 +22,7 @@ namespace Infraestructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("APICodigoEFC.Models.Customer", b =>
+            modelBuilder.Entity("Domain.Models.Customer", b =>
                 {
                     b.Property<int>("CustomerID")
                         .ValueGeneratedOnAdd()
@@ -50,7 +50,7 @@ namespace Infraestructure.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("APICodigoEFC.Models.Detail", b =>
+            modelBuilder.Entity("Domain.Models.Detail", b =>
                 {
                     b.Property<int>("DetailID")
                         .ValueGeneratedOnAdd()
@@ -85,7 +85,7 @@ namespace Infraestructure.Migrations
                     b.ToTable("Details");
                 });
 
-            modelBuilder.Entity("APICodigoEFC.Models.Invoice", b =>
+            modelBuilder.Entity("Domain.Models.Invoice", b =>
                 {
                     b.Property<int>("InvoiceID")
                         .ValueGeneratedOnAdd()
@@ -114,7 +114,7 @@ namespace Infraestructure.Migrations
                     b.ToTable("Invoices");
                 });
 
-            modelBuilder.Entity("APICodigoEFC.Models.Product", b =>
+            modelBuilder.Entity("Domain.Models.Product", b =>
                 {
                     b.Property<int>("ProductID")
                         .ValueGeneratedOnAdd()
@@ -140,15 +140,15 @@ namespace Infraestructure.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("APICodigoEFC.Models.Detail", b =>
+            modelBuilder.Entity("Domain.Models.Detail", b =>
                 {
-                    b.HasOne("APICodigoEFC.Models.Invoice", "Invoice")
+                    b.HasOne("Domain.Models.Invoice", "Invoice")
                         .WithMany()
                         .HasForeignKey("InvoiceID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("APICodigoEFC.Models.Product", "Product")
+                    b.HasOne("Domain.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -159,9 +159,9 @@ namespace Infraestructure.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("APICodigoEFC.Models.Invoice", b =>
+            modelBuilder.Entity("Domain.Models.Invoice", b =>
                 {
-                    b.HasOne("APICodigoEFC.Models.Customer", "Customer")
+                    b.HasOne("Domain.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,4 +1,4 @@
-namespace Domain
+namespace APICodigoEFC
 {
     public class WeatherForecast
     {

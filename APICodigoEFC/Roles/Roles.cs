@@ -1,4 +1,4 @@
-﻿namespace Domain.Roles
+﻿namespace APICodigoEFC.Roles
 {
     public static class ValidationHelper
     {

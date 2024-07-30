@@ -1,6 +1,4 @@
-﻿
-
-using Domain.Models;
+﻿using Domain.Models;
 using Infraestructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,7 +25,7 @@ namespace Services.Services
             return query.ToList();
         }
 
-        public void Insert( Customer customer)
+        public void Insert(Customer customer)
         {
             _context.Customers.Add(customer);
             _context.SaveChanges();

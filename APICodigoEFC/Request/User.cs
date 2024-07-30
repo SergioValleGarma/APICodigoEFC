@@ -1,4 +1,4 @@
-﻿namespace Domain.Request
+﻿namespace APICodigoEFC.Request
 {
     public class User
     {

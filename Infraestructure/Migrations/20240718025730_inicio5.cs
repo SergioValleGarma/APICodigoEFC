@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Domain.Migrations
+namespace Infraestructure.Migrations
 {
     /// <inheritdoc />
     public partial class inicio5 : Migration

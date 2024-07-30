@@ -8,9 +8,6 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\Customers2Controller.cs" />
-    <Compile Remove="Controllers\DetailsController.cs" />
-    <Compile Remove="Controllers\InvoicesController.cs" />
-    <Compile Remove="Controllers\ProductsController.cs" />
     <Compile Remove="Controllers\WeatherForecastController.cs" />
   </ItemGroup>
 
